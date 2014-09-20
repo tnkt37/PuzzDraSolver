@@ -97,7 +97,7 @@ namespace tnkt37
 				//}
 				//preSize = nextRoute.size();
 
-				//山登り
+				//一番いいのを取る
 				if (evalMax > evalAns)
 				{
 					ansRoute = nextRoute;
