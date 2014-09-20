@@ -7,9 +7,9 @@ namespace tnkt37
 	namespace PuzzDraSolver
 	{
 
-		//’TõI—¹”»’è
-		//’²®‚ª•K—v(1‚¾‚Æƒ_ƒ)
-		//‚»‚à‚»‚à‚È‚¢•û‚ª‚¢‚¢à
+		//æŽ¢ç´¢çµ‚äº†åˆ¤å®š
+		//èª¿æ•´ãŒå¿…è¦(1ã ã¨ãƒ€ãƒ¡)
+		//ãã‚‚ãã‚‚ãªã„æ–¹ãŒã„ã„èª¬
 		inline bool isSearchCompleted(Route& route, int row, int column)
 		{
 			return false;
@@ -19,9 +19,9 @@ namespace tnkt37
 		}
 
 
-		//ŽR“o‚è–@(‚ÆŒ¾‚Á‚Ä‚¢‚¢‚Ì‚©)
-		//lookAheadCountƒ^[ƒ“æ‚Ü‚ÅŒˆ‚ß‚½‚à‚Ì‚ð‹ß–T‚Æ‚µA‚à‚Á‚Æ—Ç‚¢“¹‚ðŠÜ‚ñ‚Å‚¢‚½ƒpƒ^[ƒ“‚ðÌ—p
-		//1Žè‚Ã‚ÂŠg’£‚µ‚Ä‚¢‚­
+		//å˜ç´”ãªè²ªæ¬²æ³•
+		//lookAheadCountã‚¿ãƒ¼ãƒ³å…ˆã¾ã§æ±ºã‚ãŸã‚‚ã®ã‚’è¿‘å‚ã¨ã—ã€ã‚‚ã£ã¨è‰¯ã„é“ã‚’å«ã‚“ã§ã„ãŸãƒ‘ã‚¿ãƒ¼ãƒ³ã‚’æŽ¡ç”¨
+		//1æ‰‹ã¥ã¤æ‹¡å¼µã—ã¦ã„ã
 		Route firstSearch_4(BOARD& board, int lookAheadCount, int length, int startRow, int startColumn, int& outScore)
 		{
 			if (outOfRange(startRow, startColumn)) return Route();
@@ -52,7 +52,7 @@ namespace tnkt37
 					Route tmpRoute = addedRoute;
 					tmpRoute.push_back(route);
 
-					//’Ç‰Á‚·‚éƒ‹[ƒg‚Ìˆê‰ñ–Ú‚ÌˆÚ“®‚ªˆÓ–¡‚Ì‚È‚¢‚à‚Ì‚Å‚ ‚éê‡‚Í”ò‚Î‚·
+					//è¿½åŠ ã™ã‚‹ãƒ«ãƒ¼ãƒˆã®ä¸€å›žç›®ã®ç§»å‹•ãŒæ„å‘³ã®ãªã„ã‚‚ã®ã§ã‚ã‚‹å ´åˆã¯é£›ã°ã™
 					const int top = addedRoute.top();
 					if (top != -1 && (top + 2) % 4 == route.getBits(0) && size >= 4)
 					{
@@ -60,7 +60,7 @@ namespace tnkt37
 						continue;
 					}
 
-					//’Pƒ‰»o—ˆ‚é“¹‚ð’Tõ‚µ‚È‚¢‚æ‚¤‚É‚µ‚Ä‚àˆÓ–¡‚È‚©‚Á‚½(¸“x‚ª—Ž‚¿‚½)
+					//å˜ç´”åŒ–å‡ºæ¥ã‚‹é“ã‚’æŽ¢ç´¢ã—ãªã„ã‚ˆã†ã«ã—ã¦ã‚‚æ„å‘³ãªã‹ã£ãŸ(ç²¾åº¦ãŒè½ã¡ãŸ)
 					//Route simRoute;
 					//simplifyRoute(board, tmpRoute, startRow, startColumn, simRoute);
 					//if (tmpRoute.size() != simRoute.size())
@@ -86,29 +86,29 @@ namespace tnkt37
 					}
 				}
 
-				//ŽR“o‚è‚É‚·‚é‚ÆŒ¸‚Á‚½
+				//å±±ç™»ã‚Šã«ã™ã‚‹ã¨æ¸›ã£ãŸ
 				//if (evalAllMax > evalMax) break;
 				//evalAllMax = evalMax;
 
-				//‚â‚Á‚Ä‚¢‚¢‚Ì‚©”÷–­
+				//ã‚„ã£ã¦ã„ã„ã®ã‹å¾®å¦™
 				//if (nextRoute.size() == preSize)
 				//{
 				//	break;
 				//}
 				//preSize = nextRoute.size();
 
-				//ŽR“o‚è
+				//å±±ç™»ã‚Š
 				if (evalMax > evalAns)
 				{
 					ansRoute = nextRoute;
 					evalAns = evalMax;
 				}
 				//else if(evalMax < evalAns) break;
-				//ŽR~‚è‚é
+				//å±±é™ã‚Šã‚‹
 
 				int routeBits = nextRoute.getBits(nextRoute.size() - aheads);
 
-				//length‚Ü‚Å‚Ì’Tõ‚ªI‚í‚Á‚Ä‚¢‚é
+				//lengthã¾ã§ã®æŽ¢ç´¢ãŒçµ‚ã‚ã£ã¦ã„ã‚‹
 				if (i + lookAheadCount >= length)
 				{
 					//addedRoute = nextRoute;
@@ -164,7 +164,7 @@ namespace tnkt37
 					//	debug(tmpBoard);
 					//	cout << i << ", " << j << endl;
 					//	debug(route);
-					//	cout << "«" << endl;
+					//	cout << "â†“" << endl;
 					//	debug(simpliFiedRoute);
 					//	cout << evalNum << endl;
 					//	cout << endl;
