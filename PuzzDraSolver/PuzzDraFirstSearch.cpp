@@ -19,7 +19,7 @@ namespace tnkt37
 		}
 
 
-		//単純な貪欲法
+		//特殊な貪欲法
 		//lookAheadCountターン先まで決めたものを近傍とし、もっと良い道を含んでいたパターンを採用
 		//1手づつ拡張していく
 		Route firstSearch_4(BOARD& board, int lookAheadCount, int length, int startRow, int startColumn, int& outScore)
